@@ -104,8 +104,10 @@ elif selection == "Traverse All Cities":
                         path, _ = traverse_all_cities(cities, roads, start_city, strategy)
                         if path:
                             st.success(f"Traversal Path: {path}")
+                            visualize_graph(cities, roads, path)
                         else:
                             st.error("Traversal not possible.")
+                        
                     except Exception as e:
                         st.error(f"Error: {str(e)}")
    
@@ -117,9 +119,10 @@ elif selection == "Traverse All Cities":
                         path = traverse_all_cities_with_revisits(cities, roads, start_city, strategy)
                         if path:
                             st.success(f"Traversal Path: {path}")
+                            visualize_graph(cities, roads, path)
                         else:
                             st.error("Traversal not possible.")
-                        visualize_graph(cities, roads, path)
+                        
                     except Exception as e:
                         st.error(f"Error: {str(e)}")
         
